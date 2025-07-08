@@ -1,4 +1,4 @@
-from . import db
+from . import db  # Import db AFTER it's defined in __init__.py
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -9,3 +9,4 @@ class CartItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     quantity = db.Column(db.Integer)
+
