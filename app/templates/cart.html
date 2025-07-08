@@ -1,0 +1,5 @@
+<h1>Your Cart</h1>
+{% for item in cart %}
+  <p>Product ID: {{ item.product_id }} | Quantity: {{ item.quantity }}</p>
+{% endfor %}
+<a href="/">Back to Products</a>
