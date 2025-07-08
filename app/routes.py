@@ -2,6 +2,17 @@ from flask import Blueprint, render_template, request, redirect
 from .models import Product, CartItem
 from . import db
 
+@main.before_app_first_request
+def create_tables():
+    db.create_all()
+    if not Product.query.first():
+        db.session.add_all([
+            Product(name='Phone', price=499.99),
+            Product(name='Laptop', price=899.99),
+            Product(name='Shoes', price=59.99),
+        ])
+        db.session.commit()
+
 main = Blueprint('main', __name__)
 
 @main.route('/')
