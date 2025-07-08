@@ -8,5 +8,6 @@ COPY . .
 
 ENV FLASK_APP=app
 ENV FLASK_RUN_HOST=0.0.0.0
+CMD ["python", "app.py"]
 
-CMD ["flask", "run"] 
+#CMD ["flask", "run"] 
